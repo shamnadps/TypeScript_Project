@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+
+  pg:
+    image: postgres:10.3
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dev_db
+
+  admin:
+    image: adminer
+    ports:
+      - 8080:8080
