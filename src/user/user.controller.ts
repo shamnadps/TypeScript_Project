@@ -14,11 +14,13 @@ import { UserDto } from './user.dto';
 import { UserService } from './user.service';
 import { ValidationPipe } from 'validations/validation.pipe';
 import { ValidatorOptions } from 'class-validator';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   async findAll(): Promise<UserDto[]> {
     return this.userService.findAll();
   }

@@ -10,7 +10,7 @@ export class AuthService {
 
   async createToken() {
     const user: UserDto = { name: 'shamnad', phoneNumber: '12435' };
-    return jwt.sign(user, 'secretkey');
+    return jwt.sign(user, 'secretKey', { expiresIn: '24h' });
   }
   async validateUser(token: JwtPayload): Promise<any> {
     return await this.userService.findOneByToken(token);

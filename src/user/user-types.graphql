@@ -1,0 +1,9 @@
+type User {
+  id: Int!
+  name: String
+  phoneNumber: String
+}
+
+type Query {
+  user(id: Int!): User
+}
