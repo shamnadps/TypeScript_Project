@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { UserDto } from './user.dto';
 import { JwtPayload } from 'auth/jwt.payload';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
+import { UserDto } from './user.dto';
 
 @Injectable()
 export class UserService {
@@ -11,7 +11,6 @@ export class UserService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  private readonly users: UserDto[] = [];
   createUser(user: UserDto) {
     this.userRepository.save(user);
     return 'User Added';
@@ -23,5 +22,9 @@ export class UserService {
 
   findOneByToken(token: JwtPayload) {
     return true;
+  }
+
+  async findOneById(id: number) {
+    return await this.userRepository.findOne(id);
   }
 }

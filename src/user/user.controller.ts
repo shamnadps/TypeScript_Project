@@ -15,20 +15,21 @@ import { UserService } from './user.service';
 import { ValidationPipe } from 'validations/validation.pipe';
 import { ValidatorOptions } from 'class-validator';
 import { AuthGuard } from '@nestjs/passport';
+import { User } from './user.entity';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
   @Get()
   @UseGuards(AuthGuard('jwt'))
-  async findAll(): Promise<UserDto[]> {
+  async findAll(): Promise<User[]> {
     return this.userService.findAll();
   }
 
   @Post()
   @UsePipes(new ValidationPipe())
-  create(@Body() createUserDto: UserDto) {
-    return this.userService.createUser(createUserDto);
+  create(@Body() user: UserDto) {
+    return this.userService.createUser(user);
   }
 
   @Get(':id')

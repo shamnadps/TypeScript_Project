@@ -20,7 +20,10 @@ export class AppModule implements NestModule {
   ) {}
 
   configure(consumer: MiddlewareConsumer) {
-    const typeDefs = this.graphQLFactory.mergeTypesByPaths('./**/*.graphql');
+    const typeDefs = this.graphQLFactory.mergeTypesByPaths(
+      './**/*.graphql',
+      './src/user/*.graphql',
+    );
     const schema = this.graphQLFactory.createSchema({ typeDefs });
     consumer
       .apply(graphiqlExpress({ endpointURL: '/graphql' }))
