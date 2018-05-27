@@ -15,18 +15,19 @@ $ npm install
 ```bash
 # development
 $ . ./run-locally.sh
+```
 
 ##API available.
 Create User
 http://localhost:3000/user - POST
-```
 
+```
 {
-name : String
-phoneNumber: String
+    name : 'test user'
+    phoneNumber: '012345689'
 }
-
 ```
+
 To Login
 `http://localhost:3000/login`
 
@@ -34,29 +35,29 @@ To Login
 
 Navigate to graphiql api. `http://localhost:3000/graphiql` and try out the queries
 to get all the users, use the below query
-```
 
+```
 {
 getAllUsers {
-id
-name
-phoneNumber
+    id
+    name
+    phoneNumber
+    }
 }
-}
-
 ```
+
 to get users by ID, use the below query
-```
 
+```
 {
 getUserById(id: 1) {
-id
-name
-phoneNumber
+    id
+    name
+    phoneNumber
+    }
 }
-}
+```
 
-````
 ## Test
 
 ```bash
@@ -68,4 +69,4 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
-````
+```
