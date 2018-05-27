@@ -17,8 +17,9 @@ $ npm install
 $ . ./run-locally.sh
 ```
 
-##API available.
-Create User
+## API available.
+
+To Create User
 http://localhost:3000/user - POST
 
 ```
@@ -28,12 +29,9 @@ http://localhost:3000/user - POST
 }
 ```
 
-To Login
-`http://localhost:3000/login`
+## GraphQL
 
-## GraphQl
-
-Navigate to graphiql api. `http://localhost:3000/graphiql` and try out the queries
+Navigate to graphiql url on the browser. `http://localhost:3000/graphiql` and try out the queries
 to get all the users, use the below query
 
 ```
