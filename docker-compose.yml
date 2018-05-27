@@ -2,12 +2,22 @@ version: '3.3'
 
 services:
 
-  pg:
+  typescript_project:
+    image: typescript_project
+    ports:
+      - 3000:3000
+    command: bash -c 'npm install && npm start'
+    depends_on:
+      - postgres-dev-db
+    environment:
+      PORT: 3000
+
+  postgres-dev-db:
     image: postgres:10.3
     environment:
-      POSTGRES_USER: root
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: dev_db
+      POSTGRES_DB: vantaa_pwa
 
   admin:
     image: adminer
