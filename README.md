@@ -34,6 +34,49 @@ http://localhost:3000/user - POST
 Navigate to graphiql url on the browser. `http://localhost:3000/graphiql` and try out the queries
 to get all the users, use the below query
 
+to create new user
+
+```
+mutation {
+createUser(
+        input:
+            { name: "test", phoneNumber: "3434" }
+        )
+        {
+            id,
+            name,
+            phoneNumber
+        }
+}
+```
+
+to update user details
+
+```
+mutation {
+    updateUser(
+        input:
+            { id: 1, name: "test_updated", phoneNumber: "34345" }
+        )
+        {
+            id,
+            name,
+            phoneNumber
+        }
+}
+```
+
+to delete a user
+
+```
+mutation {
+    deleteUser(
+        input:
+            { id:1 }
+    )
+}
+```
+
 ```
 {
 getAllUsers {

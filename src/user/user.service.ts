@@ -11,9 +11,19 @@ export class UserService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  createUser(user: UserDto) {
-    this.userRepository.save(user);
-    return 'User Added';
+  async createUser(user: UserDto) {
+    const response = await this.userRepository.save(user);
+    return response;
+  }
+
+  async deleteUser(id: number) {
+    await this.userRepository.delete(id);
+    return id;
+  }
+
+  async updateUser(user: User) {
+    const response = await this.userRepository.update(user.id, user);
+    return response;
   }
 
   async findAll(): Promise<User[]> {

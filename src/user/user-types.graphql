@@ -4,7 +4,28 @@ type User {
   phoneNumber: String
 }
 
+input UserInput {
+  name: String
+  phoneNumber: String
+}
+
+input UserUpdateInput {
+  id: Int!
+  name: String
+  phoneNumber: String
+}
+
+input UserDeleteInput {
+  id: Int!
+}
+
 type Query {
   getAllUsers: [User]
   getUserById(id: Int!): User
+}
+
+type Mutation {
+  createUser(input: UserInput!): User
+  updateUser(input: UserUpdateInput!): User
+  deleteUser(input: UserDeleteInput!): Int
 }
