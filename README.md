@@ -34,7 +34,7 @@ http://localhost:3000/user - POST
 Navigate to graphiql url on the browser. `http://localhost:3000/graphiql` and try out the queries
 to get all the users, use the below query
 
-to create new user
+1.  _To create new user_
 
 ```
 mutation {
@@ -50,7 +50,7 @@ createUser(
 }
 ```
 
-to update user details
+2.  _To update user details_
 
 ```
 mutation {
@@ -66,7 +66,7 @@ mutation {
 }
 ```
 
-to delete a user
+3.  _To delete a user_
 
 ```
 mutation {
@@ -76,6 +76,8 @@ mutation {
     )
 }
 ```
+
+4.  _To get All Users_
 
 ```
 {
@@ -87,7 +89,7 @@ getAllUsers {
 }
 ```
 
-to get users by ID, use the below query
+5.  _To get users by ID_
 
 ```
 {
