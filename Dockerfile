@@ -1,5 +1,8 @@
-FROM node:8.10
-RUN mkdir /typescript_project
-ADD . /typescript_project
-WORKDIR /typescript_project
+FROM angular-pwa-backend:latest
+ADD ./frontend /frontend
+WORKDIR /frontend
+RUN npm install
+RUN npm run build
+RUN cp -r ./dist/angular-pwa ../backend/public
+WORKDIR /backend
 CMD ["npm", "start"]

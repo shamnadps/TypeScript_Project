@@ -1,16 +1,27 @@
 version: '3.3'
 
 services:
-
-  typescript_project:
-    image: typescript_project
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/frontend
+    command: npm run start
     ports:
-      - 3000:3000
-    command: bash -c 'npm install && npm start'
+      - 4200:4200
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - 5000:80
+    command: npm run start:dev
+    volumes:
+      - ./backend:/backend
     depends_on:
       - postgres-dev-db
     environment:
-      PORT: 3000
+      PORT: 80
 
   postgres-dev-db:
     image: postgres:10.3

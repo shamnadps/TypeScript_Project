@@ -39,6 +39,8 @@
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "tslint-config-prettier": "^1.13.0",
+    "ts-node": "^4.1.0",
+    "nodemon": "^1.14.1",
     "typeorm": "^0.2.6",
     "typescript": "^2.6.2"
   },
