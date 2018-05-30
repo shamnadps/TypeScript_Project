@@ -1,26 +1,20 @@
-# project
+# Angular-PWA-TypeScript-TypeOrm-NestJs-GraphQL-Docker
 
 ## Description
 
 sample-project-using-type-sript
 
-## Installation
-
-```bash
-$ npm install
-```
-
 ## Running the app
 
 ```bash
 # development
-$ npm run start:dev
+$ . ./run-locally.sh
 ```
 
 ## API available.
 
 To Create User
-http://localhost:3000/user - POST
+http://localhost:5000/user - POST
 
 ```
 {
@@ -31,7 +25,7 @@ http://localhost:3000/user - POST
 
 ## GraphQL
 
-Navigate to graphiql url on the browser. `http://localhost:3000/graphiql` and try out the queries
+Navigate to graphiql url on the browser. `http://localhost:5000/graphiql` and try out the queries
 to get all the users, use the below query
 
 1.  _To create new user_
@@ -99,17 +93,4 @@ getUserById(id: 1) {
     phoneNumber
     }
 }
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```

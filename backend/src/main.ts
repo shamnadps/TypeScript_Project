@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import { logger } from 'middleware/logger.middleware';
 import { AnyExceptionFilter } from 'exception/exception.filter';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
