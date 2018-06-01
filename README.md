@@ -23,6 +23,12 @@ http://localhost:5000/user - POST
 }
 ```
 
+## Front End - Todo list App
+
+Navigate to `http://localhost:4200/`.
+
+Just a simple to do list app has been implemented.
+
 ## GraphQL
 
 Navigate to graphiql url on the browser. `http://localhost:5000/graphiql` and try out the queries
