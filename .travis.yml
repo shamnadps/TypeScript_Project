@@ -3,7 +3,13 @@ sudo: required
 services:
 - docker
 before_script:
-- echo "Hello"
-after_success:
+- cd backend
+script:
+- npm install
+- npm test
+after_script:
+- cd ..
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
-- . ./deploy-to-dev.sh
+- heroku update
+- heroku container:push web --app typescript-project
+- heroku container:release web --app typescript-project
