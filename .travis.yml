@@ -7,7 +7,7 @@ before_script:
 script:
 - npm install
 - npm test
-after_script:
+after_success:
 - cd ..
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
 - heroku update
