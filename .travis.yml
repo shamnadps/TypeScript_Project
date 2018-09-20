@@ -5,6 +5,5 @@ services:
 before_script:
 - echo "Hello"
 after_success:
-  # for local testing, needs to be set on travis, too:
-  # export HEROKU_TOKEN=$(heroku auth:token)
+- docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
 - . ./deploy-to-dev.sh
