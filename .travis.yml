@@ -1,4 +1,13 @@
-deploy:
-  provider: heroku
-  api_key: 8dc4da6e-2383-4798-81b7-8e960145bc4d
-  app: typescript-project
+language: generic
+sudo: required
+services:
+- docker
+before_script:
+- docker-compose build
+after_success:
+  # for local testing, needs to be set on travis, too:
+  # export HEROKU_TOKEN=$(heroku auth:token)
+- docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+- docker build -t registry.heroku.com/typescript-project/web -f Dockerfile .
+- docker push registry.heroku.com/typescript-project/web
+- heroku run --app typescript-project
