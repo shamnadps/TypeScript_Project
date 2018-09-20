@@ -1,3 +1,4 @@
+heroku auth:token
 heroku update
 heroku help container
 heroku container:push web --app typescript-project
