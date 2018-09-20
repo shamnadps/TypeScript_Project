@@ -10,5 +10,4 @@ after_success:
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
 - docker build -t registry.heroku.com/typescript-project/web -f Dockerfile .
 - docker push registry.heroku.com/typescript-project/web
-- heroku run --app typescript-project
-- heroku container: release web
+- heroku container:release web
