@@ -3,7 +3,7 @@ sudo: required
 services:
 - docker
 before_script:
-- docker-compose build
+- echo "Hello"
 after_success:
   # for local testing, needs to be set on travis, too:
   # export HEROKU_TOKEN=$(heroku auth:token)
@@ -11,3 +11,4 @@ after_success:
 - docker build -t registry.heroku.com/typescript-project/web -f Dockerfile .
 - docker push registry.heroku.com/typescript-project/web
 - heroku run --app typescript-project
+- heroku container: release web
