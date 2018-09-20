@@ -1,0 +1,4 @@
+deploy:
+  provider: heroku
+  api_key: 8dc4da6e-2383-4798-81b7-8e960145bc4d
+  app: typescript-project
