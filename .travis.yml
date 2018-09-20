@@ -2,13 +2,12 @@ language: generic
 sudo: required
 services:
 - docker
-before_script:
-- cd backend
 script:
+- cd backend
 - npm install
 - npm test
-after_success:
 - cd ..
+after_success:
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
 - heroku update
 - heroku container:push web --app typescript-project
