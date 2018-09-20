@@ -8,6 +8,9 @@ after_success:
   # for local testing, needs to be set on travis, too:
   # export HEROKU_TOKEN=$(heroku auth:token)
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
-- docker build -t registry.heroku.com/typescript-project/web -f Dockerfile .
+- docker build --no-cache . -t typescript-project:latest
+- docker tag typescript-project:latest registry.heroku.com/typescript-project/web:latest
+- heroku container:login
 - docker push registry.heroku.com/typescript-project/web
-- heroku container:release web
+- heroku container:release web --app typescript-project
+- echo "Complete"
